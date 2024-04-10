@@ -24,7 +24,7 @@ int main() {
   cout << "I've generated a number. Try to guess it!" << std::endl;
 
   while (true) {
-    cout << "Please provide the next guess:" ;
+    cout << "Please provide the next guess: " ;
     cin >> guessed_number;
     no_of_guess++;
     if (guessed_number < generated_number) {
