@@ -16,8 +16,8 @@ int main() {
   noun_info.emplace("winter"s, "software design hero");
 
   const std::array<std::string, 3UL> ending{
-      "finds errors quicker than the compiler"s,
       "eats UB for breakfast"s,
+      "finds errors quicker than the compiler"s,
       "is not afraid of C++ error messages"s};
 
   cout << "Welcome to the fortune teller program!\n";
