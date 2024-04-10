@@ -28,9 +28,9 @@ int main() {
     cin >> guessed_number;
     no_of_guess++;
     if (guessed_number < generated_number) {
-      cout << "Your number is too small.\nTry again!" << std::endl;
+      cout << "Your number is too small. Try again!" << std::endl;
     } else if (guessed_number > generated_number) {
-      cout << "Your number is too big.\nTry again!" << std::endl;
+      cout << "Your number is too big. Try again!" << std::endl;
     } else {
       cout << "You've done it! You guessed the number " << guessed_number
            << " in " << no_of_guess << " guesses!" << std::endl;
