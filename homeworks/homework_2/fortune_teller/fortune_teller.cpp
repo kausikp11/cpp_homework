@@ -48,6 +48,7 @@ int main() {
   // cout<<adjective.size()%ending.size()<<std::endl;
 
   // cout<<adjective_index<<ending_index<<std::endl;
+  cout<<std::endl<<"Here is your description:"<<std::endl;
 
   cout << name + ", the "s + adjective[adjective_index] + " "s +
               noun_info[noun] + " that " + ending[ending_index]
