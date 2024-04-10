@@ -37,7 +37,7 @@ int main() {
   const int name_size = name.size();
   const int adjective_index = name_size % adjective_size;
   const int ending_size = ending.size();
-  const int ending_index = ending_size % adjective_size;
+  const int ending_index = name_size % ending_size;
   // cout<<adjective.size()<<std::endl;
   // cout<<typeid(index1).name()<<std::endl;
   // cout<<name.size()<<std::endl;
