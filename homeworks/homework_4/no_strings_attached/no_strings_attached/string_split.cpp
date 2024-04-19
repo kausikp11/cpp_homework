@@ -14,8 +14,9 @@ std::vector<std::string> Split(const std::string &str,
   while (!is_done) {
     auto split_location = str_original.find(given_delimiter);
     if (split_location < str_original.length()) {
-      splited_string.push_back(str_original.substr(0, split_location));
-      str_original.erase(0, split_location + 1);
+      auto string_length = given_delimiter.size()
+      splited_string.push_back(str_original.substr(0, split_location+string_length));
+      str_original.erase(0, split_location+string_length + 1);
     } else {
       splited_string.push_back(str_original.substr(0, split_location));
       is_done = true;
