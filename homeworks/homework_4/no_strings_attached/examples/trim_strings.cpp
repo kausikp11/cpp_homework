@@ -13,5 +13,5 @@ int main() {
   std::getline(std::cin, str);
   output = no_strings_attached::string_trim::Trim(str,' ',no_strings_attached::string_trim::Side::kBoth);
   ouput_string = " Your trimmed string: '"s + output+"'"s;
-  std::cout<<ouput_string;
+  //std::cout<<ouput_string;
 }
