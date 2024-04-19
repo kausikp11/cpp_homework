@@ -11,7 +11,7 @@ int main() {
   std::vector<std::string> output;
   std::cout << "Example program that splits strings.\nPlease enter a string:\n";
   std::getline(std::cin, str);
-  output = no_strings_attached::string_split::Split(str, " ");
+  output = no_strings_attached::Split(str, " ");
   ouput_string = "Your split string:"s;
   auto i = output.size();
   for(i=0; i<=output.size()-1;i++){
