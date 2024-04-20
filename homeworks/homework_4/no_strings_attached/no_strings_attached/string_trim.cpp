@@ -43,7 +43,7 @@ namespace no_strings_attached {
             else{
                 break;
             }
-        }
+            }
         found = str_original.size()-1;
             while(true){
             if(str_original[found]==char_to_trim_original){
@@ -53,7 +53,7 @@ namespace no_strings_attached {
             else{
                 break;
             }
-        }
+            }
             break;
         }
         return str_original;
