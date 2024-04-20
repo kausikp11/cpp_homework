@@ -14,7 +14,7 @@ namespace no_strings_attached {
         case Side::kLeft:
         while(true){
             if(str_original[found]==char_to_trim_original){
-                str_original[found] = '\0';
+                str_original.replace(found,found+1,"");
                 found++;
             }
             else{
@@ -26,7 +26,7 @@ namespace no_strings_attached {
         found = str_original.size()-1;
             while(true){
             if(str_original[found]==char_to_trim_original){
-                str_original[found] = '\0';
+                str_original.replace(found,found-1,"");
                 found--;
             }
             else{
@@ -37,7 +37,7 @@ namespace no_strings_attached {
         case Side::kBoth:
             while(true){
             if(str_original[found]==char_to_trim_original){
-                str_original[found] = '\0';
+                str_original.replace(found,found+1,"");
                 found++;
             }
             else{
@@ -47,7 +47,7 @@ namespace no_strings_attached {
         found = str_original.size()-1;
             while(true){
             if(str_original[found]==char_to_trim_original){
-                str_original[found] = '\0';
+                str_original.replace(found,found-1,"");
                 found--;
             }
             else{
