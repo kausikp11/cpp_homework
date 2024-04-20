@@ -12,7 +12,7 @@ int main() {
   std::cout << "Example program that trims strings.\nPlease enter a string:\n";
   std::getline(std::cin, str);
   output = no_strings_attached::Trim(str,' ',no_strings_attached::Side::kBoth);
-    std::cerr<<output<<std::endl;
-  ouput_string = " Your trimmed string: '"s +output+"'"s;
+    //std::cerr<<output<<std::endl;
+  ouput_string = "Your trimmed string: '"s +output+"'"s;
   std::cout<<ouput_string;
 }
