@@ -112,7 +112,5 @@ namespace no_strings_attached {
             return str;
         }
     }
-::kBoth);
-    }
 //} // namespace string_trim
 } // namespace no_strings_attached
