@@ -15,4 +15,5 @@ int main() {
     //std::cerr<<output<<std::endl;
   std::cout<<"Your trimmed string: ";
   std::cout<<"'"<<output<<"'"<<std::endl;
+    return 0;
 }
