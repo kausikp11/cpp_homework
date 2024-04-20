@@ -4,7 +4,7 @@
 #include <no_strings_attached/string_split.h>
 
 namespace no_strings_attached {
-namespace string_split {
+//namespace string_split {
 std::vector<std::string> Split(const std::string &str,
                                const std::string &delimiter) {
   std::string str_original = str;
@@ -30,5 +30,5 @@ auto splited_string_vector = Split(str,delimiter);
 splited_string_vector.resize(number_of_chunks_to_keep);
 return splited_string_vector;
                                }
-} // namespace string_split
+//} // namespace string_split
 } // namespace no_strings_attached
