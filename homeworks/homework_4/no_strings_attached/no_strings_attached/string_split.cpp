@@ -1,11 +1,12 @@
+#include <no_strings_attached/string_split.h>
 #include <string>
 #include <vector>
+#include <iostream>
 
-#include <no_strings_attached/string_split.h>
 
-namespace no_strings_attached {
-//namespace string_split {
-std::vector<std::string> Split(const std::string& str, const std::string& delimiter){
+namespace no_strings_attached{
+
+    std::vector<std::string> Split(const std::string& str, const std::string& delimiter){
         //std::cout << " Debug : function entry "<<std::endl;
 
         int next_start = delimiter.size();
@@ -161,5 +162,5 @@ std::vector<std::string> Split(const std::string& str, const std::string& delimi
             return container;
         }
     }
-//} // namespace string_split
-} // namespace no_strings_attached
+
+}
