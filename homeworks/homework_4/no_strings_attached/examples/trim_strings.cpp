@@ -6,14 +6,11 @@
 
 int main() {
     using std::string_literals::operator""s;
-  std::string str{};
-  std::string ouput_string{};
-  std::string output;
+  std::string string_to_be_trimmed{};
   std::cout << "Example program that trims strings.\nPlease enter a string:\n";
-  std::getline(std::cin, str);
-  output = no_strings_attached::Trim(str,' ',no_strings_attached::Side::kBoth);
-    //std::cerr<<output<<std::endl;
-  std::cout<<"Your trimmed string: ";
-  std::cout<<"'"<<output<<"'"<<std::endl;
-    return 0;
+  std::getline(std::cin, string_to_be_trimmed);
+  std::string Trimmed_string = no_strings_attached::Trim(string_to_be_trimmed);
+std::cout << "Your trimmed string: ";
+std::cout <<"'"<< Trimmed_string <<"'";
+std::cout <<std::endl;
 }
