@@ -5,7 +5,7 @@
 
 TEST(TestTopic,hellokLeft){
     std::string assert_value = "hello ";
-    EXPECT_EQ(no_strings_attached::Trim(" hello ", ' ', no_strings_attached::Side::kLeft),assert_value)<<"No a problem";
+    EXPECT_EQ(no_strings_attached::Trim("  hello ", ' ', no_strings_attached::Side::kLeft),assert_value)<<"No a problem";
 }
 
 TEST(TestTopic,hellokRight){

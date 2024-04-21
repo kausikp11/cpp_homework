@@ -1,5 +1,6 @@
 #include <string>
 #include <vector>
+#include <iostream>
 
 #include <no_strings_attached/string_trim.h>
 
@@ -14,19 +15,27 @@ namespace no_strings_attached {
         case Side::kLeft:
         while(true){
             if(str_original[found]==char_to_trim_original){
-                str_original.replace(found,found+1,"");
+                if(found==0){
+                str_original.replace(found,1,"");
+                }
+                else{
+                    str_original.replace(found-1,1,"");
+                }
                 found++;
             }
             else{
                 break;
             }
         }
+        if(str_original[0]==char_to_trim_original){
+            str_original.replace(0,1,"");
+        }
             break;
         case Side::kRight:
         found = str_original.size()-1;
             while(true){
             if(str_original[found]==char_to_trim_original){
-                str_original.replace(found,found-1,"");
+                str_original.replace(found,1,"");
                 found--;
             }
             else{
@@ -37,17 +46,25 @@ namespace no_strings_attached {
         case Side::kBoth:
             while(true){
             if(str_original[found]==char_to_trim_original){
-                str_original.replace(found,found+1,"");
+                if(found==0){
+                str_original.replace(found,1,"");
+                }
+                else{
+                    str_original.replace(found-1,1,"");
+                }
                 found++;
             }
             else{
                 break;
             }
-            }
+            if(str_original[0]==char_to_trim_original){
+            str_original.replace(0,1,"");
+        }
+        }
         found = str_original.size()-1;
             while(true){
             if(str_original[found]==char_to_trim_original){
-                str_original.replace(found,found-1,"");
+                str_original.replace(found,1,"");
                 found--;
             }
             else{
