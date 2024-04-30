@@ -15,7 +15,7 @@ pixelator::StbImageDataView::StbImageDataView(std::filesystem::path image_path)
     }
 }
 
-this &operator = ( pixelator::StbImageDataView &&other )
+/* pixelator::StbImageDataView &operator = ( pixelator::StbImageDataView &&other )
 {
     if (this == &other)
     {
@@ -35,7 +35,7 @@ this &operator = ( pixelator::StbImageDataView &&other )
     other.channels_ = 0;
 
     return *this;
-};
+}; */
 
 bool pixelator::StbImageDataView::empty()
 {
