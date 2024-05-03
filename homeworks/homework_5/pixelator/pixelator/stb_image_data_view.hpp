@@ -18,8 +18,8 @@ class StbImageDataView {
  public:
   StbImageDataView() = default;
   explicit StbImageDataView(std::filesystem::path image_path);
-  StbImageDataView(StbImageDataView &&other_image);
-  // StbImageDataView &operator;
+  StbImageDataView(StbImageDataView&& other_image);
+  StbImageDataView& operator=(StbImageDataView&& other);
 
   pixelator::Size size();
   int rows();
@@ -29,7 +29,7 @@ class StbImageDataView {
   ~StbImageDataView();
 
  private:
-  unsigned char *image_{nullptr};
+  unsigned char* image_{nullptr};
   int rows_;
   int cols_;
   pixelator::Size size_of_image_{};

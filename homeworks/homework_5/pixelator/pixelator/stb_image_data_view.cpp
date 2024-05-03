@@ -15,12 +15,13 @@ pixelator::StbImageDataView::StbImageDataView(
   this->size_of_image_.row = this->rows_;
 }
 
-StbImageDataView &operator=(pixelator::StbImageDataView &&other) {
+pixelator::StbImageDataView& pixelator::StbImageDataView::operator=(
+    pixelator::StbImageDataView&& other) {
   if (this == &other) { return *this; }
   if (this->image_) stbi_image_free(this->image_);
 
   this->image_ = other.image_;
-  this->size_of_image_.row = other->size_of_image_.row;
+  this->size_of_image_.row = other.size_of_image_.row;
   this->size_of_image_.col = other.size_of_image_.col;
   this->channels_ = other.channels_;
 
@@ -32,7 +33,7 @@ StbImageDataView &operator=(pixelator::StbImageDataView &&other) {
   return *this;
 }
 
-pixelator::StbImageDataView::StbImageDataView(StbImageDataView &&other_image) {
+pixelator::StbImageDataView::StbImageDataView(StbImageDataView&& other_image) {
   this->rows_ = other_image.rows_;
   this->cols_ = other_image.cols_;
   this->channels_ = other_image.channels_;
@@ -61,7 +62,7 @@ ftxui::Color pixelator::StbImageDataView::at(int row, int col) {
   ftxui::Screen screen{
       ftxui::Screen(this->size_of_image_.row, this->size_of_image_.col)};
   screen.Print();
-  auto &pixel = screen.PixelAt(row, col);
+  auto& pixel = screen.PixelAt(row, col);
   auto color = pixel.foreground_color;
   return color;
 }
