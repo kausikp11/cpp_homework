@@ -15,8 +15,7 @@ pixelator::StbImageDataView::StbImageDataView(
   this->size_of_image_.row = this->rows_;
 }
 
-pixelator::StbImageDataView::StbImageDataView &operator=(
-    pixelator::StbImageDataView &&other) {
+StbImageDataView &operator=(pixelator::StbImageDataView &&other) {
   if (this == &other) { return *this; }
   if (this->image_) stbi_image_free(this->image_);
 
@@ -31,16 +30,17 @@ pixelator::StbImageDataView::StbImageDataView &operator=(
   other.channels_ = 0;
 
   return *this;
-};
+}
 
-pixelator::StbImageDataView::(StbImageDataView &&other_image) {
-  rows_{other_image.rows_}, cols_{other_image.cols_},
-      channels_{other_image.channels_}, image_data{other_image.image_data} {
-    other_image.image_data = nullptr;
-    other_image.rows_ = 0;
-    other_image.cols_ = 0;
-    other_image.channels_ = 0;
-  }
+pixelator::StbImageDataView::StbImageDataView(StbImageDataView &&other_image) {
+  this->rows_ = other_image.rows_;
+  this->cols_ = other_image.cols_;
+  this->channels_ = other_image.channels_;
+  this->image_ = other_image.image_;
+  other_image.image_ = nullptr;
+  other_image.rows_ = 0;
+  other_image.cols_ = 0;
+  other_image.channels_ = 0;
 }
 
 bool pixelator::StbImageDataView::empty() {
