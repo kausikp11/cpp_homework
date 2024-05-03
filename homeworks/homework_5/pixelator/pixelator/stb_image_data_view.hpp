@@ -11,13 +11,15 @@
 
 namespace pixelator {
 struct Size {
-  int *row;
-  int *col;
+  int row;
+  int col;
 };
 class StbImageDataView {
  public:
   StbImageDataView() = default;
   explicit StbImageDataView(std::filesystem::path image_path);
+  StbImageDataView(StbImageDataView &&other_image);
+  StbImageDataView &operator;
 
   pixelator::Size size();
   int rows();
@@ -28,8 +30,10 @@ class StbImageDataView {
 
  private:
   unsigned char *image_{nullptr};
+  int rows_;
+  int cols_;
   pixelator::Size size_of_image_{};
-  int *channels_{};
+  int channels_;
 };
 }  // namespace pixelator
 

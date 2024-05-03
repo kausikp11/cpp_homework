@@ -1,8 +1,8 @@
 #include <pixelator/image.hpp>
 
-pixelator::Image::Image(const int row,const int col):cols_{col}, rows_{row}, pixels_(row*col) {
+pixelator::Image::Image(const int row, const int col)
+    : cols_{col}, rows_{row}, pixels_(row * col) {
   *size_.col = col, *size_.row = row;
-  
 }
 
 bool pixelator::Image::empty() { return this->pixels_.empty(); }
