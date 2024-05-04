@@ -3,6 +3,8 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb/stb_image.h"
 
+pixelator::StbImageDataView::StbImageDataView() : cols_{0}, rows_{0}, channels_{0}, image_data{nullptr} {};
+
 pixelator::StbImageDataView::StbImageDataView(
     std::filesystem::path image_path) {
   if (!std::filesystem::exists(image_path)) {
