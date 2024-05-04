@@ -33,7 +33,7 @@ pixelator::StbImageDataView::StbImageDataView(StbImageDataView&& other_image)
 }
 
 pixelator::StbImageDataView& pixelator::StbImageDataView::operator=(
-    pixelator::StbImageDataView&& other) {
+    pixelator::StbImageDataView&& other_image) {
   if (this == &other_image) { return *this; }  // Do not self-assign.
             if (image_) stbi_image_free(image_);
 
