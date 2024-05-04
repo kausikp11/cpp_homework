@@ -20,22 +20,21 @@ pixelator::StbImageDataView::StbImageDataView(
 
 pixelator::StbImageDataView::StbImageDataView(StbImageDataView&& other_image):rows_{other_image.rows_}, cols_{other_image.cols_}, channels_{other_image.channels_},
         image_{other_image.image_} {
-
   other_image.image_ = nullptr;
   other_image.rows_ = 0;
   other_image.cols_ = 0;
   other_image.channels_ = 0;
-}
+};
 
 pixelator::StbImageDataView& pixelator::StbImageDataView::operator=(
     pixelator::StbImageDataView&& other) {
   if (this == &other) { return *this; }
-  if (this->image_) stbi_image_free(this->image_);
+  if (image_) stbi_image_free(image_);
 
-  this->image_ = other.image_;
-  this->size_of_image_.rows = other.size_of_image_.rows;
-  this->size_of_image_.cols = other.size_of_image_.cols;
-  this->channels_ = other.channels_;
+  image_ = other.image_;
+  size_of_image_.rows = other.size_of_image_.rows;
+  size_of_image_.cols = other.size_of_image_.cols;
+  channels_ = other.channels_;
 
   other.image_ = nullptr;
   other.size_of_image_.rows = 0;
