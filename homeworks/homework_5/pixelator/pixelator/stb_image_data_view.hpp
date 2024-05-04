@@ -26,7 +26,7 @@ class StbImageDataView {
   ~StbImageDataView();
 
  private:
-  unsigned char* image_{nullptr};
+  unsigned char * image_{nullptr};
   int rows_;
   int cols_;
   pixelator::Size size_of_image_{};
