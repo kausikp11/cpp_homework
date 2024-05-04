@@ -14,8 +14,8 @@ pixelator::StbImageDataView::StbImageDataView(
     this->image_ = stbi_load(
         image_path.c_str(), &this->cols_, &this->rows_, &this->channels_, 0);
   }
-  this->size_of_image_.col = this->cols_;
-  this->size_of_image_.row = this->rows_;
+  this->size_of_image_.cols = this->cols_;
+  this->size_of_image_.rows = this->rows_;
 }
 
 pixelator::StbImageDataView& pixelator::StbImageDataView::operator=(
@@ -24,13 +24,13 @@ pixelator::StbImageDataView& pixelator::StbImageDataView::operator=(
   if (this->image_) stbi_image_free(this->image_);
 
   this->image_ = other.image_;
-  this->size_of_image_.row = other.size_of_image_.row;
-  this->size_of_image_.col = other.size_of_image_.col;
+  this->size_of_image_.rows = other.size_of_image_.rows;
+  this->size_of_image_.cols = other.size_of_image_.cols;
   this->channels_ = other.channels_;
 
   other.image_ = nullptr;
-  other.size_of_image_.row = 0;
-  other.size_of_image_.col = 0;
+  other.size_of_image_.rows = 0;
+  other.size_of_image_.cols = 0;
   other.channels_ = 0;
 
   return *this;
@@ -48,7 +48,7 @@ pixelator::StbImageDataView::StbImageDataView(StbImageDataView&& other_image) {
 }
 
 bool pixelator::StbImageDataView::empty() const {
-  if (this->size_of_image_.row == 0 && this->size_of_image_.col == 0) {
+  if (this->size_of_image_.rows == 0 && this->size_of_image_.cols == 0) {
     return true;
   }
   return false;
@@ -59,10 +59,10 @@ pixelator::Size pixelator::StbImageDataView::size() const {
 }
 
 int pixelator::StbImageDataView::rows() const {
-  return this->size_of_image_.row;
+  return this->size_of_image_.rows;
 }
 int pixelator::StbImageDataView::cols() const {
-  return this->size_of_image_.col;
+  return this->size_of_image_.cols;
 }
 
 const ftxui::Color pixelator::StbImageDataView::at(int row, int col) const {

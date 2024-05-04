@@ -2,7 +2,7 @@
 
 pixelator::Image::Image(const int row, const int col)
     : cols_{col}, rows_{row}, pixels_(row * col) {
-  size_.col = col, size_.row = row;
+  size_.cols = col, size_.rows = row;
 }
 
 pixelator::Image::Image(const Image& ref_obj) {
@@ -12,7 +12,7 @@ pixelator::Image::Image(const Image& ref_obj) {
 }
 
 pixelator::Image::Image(pixelator::Size size)
-    : cols_{size.col}, rows_{size.row}, pixels_(size.row * size.col) {}
+    : cols_{size.cols}, rows_{size.rows}, pixels_(size.rows * size.cols) {}
 
 pixelator::Image::Image(Image&& other_image) {
   this->cols_ = other_image.cols_;
