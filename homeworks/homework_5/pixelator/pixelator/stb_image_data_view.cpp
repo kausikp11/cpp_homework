@@ -18,6 +18,17 @@ pixelator::StbImageDataView::StbImageDataView(
   this->size_of_image_.rows = this->rows_;
 }
 
+pixelator::StbImageDataView::StbImageDataView(StbImageDataView&& other_image) {
+  this->rows_ = other_image.rows_;
+  this->cols_ = other_image.cols_;
+  this->channels_ = other_image.channels_;
+  this->image_ = other_image.image_;
+  other_image.image_ = nullptr;
+  other_image.rows_ = 0;
+  other_image.cols_ = 0;
+  other_image.channels_ = 0;
+}
+
 pixelator::StbImageDataView& pixelator::StbImageDataView::operator=(
     pixelator::StbImageDataView&& other) {
   if (this == &other) { return *this; }
@@ -34,17 +45,6 @@ pixelator::StbImageDataView& pixelator::StbImageDataView::operator=(
   other.channels_ = 0;
 
   return *this;
-}
-
-pixelator::StbImageDataView::StbImageDataView(StbImageDataView&& other_image) {
-  this->rows_ = other_image.rows_;
-  this->cols_ = other_image.cols_;
-  this->channels_ = other_image.channels_;
-  this->image_ = other_image.image_;
-  other_image.image_ = nullptr;
-  other_image.rows_ = 0;
-  other_image.cols_ = 0;
-  other_image.channels_ = 0;
 }
 
 bool pixelator::StbImageDataView::empty() const {
