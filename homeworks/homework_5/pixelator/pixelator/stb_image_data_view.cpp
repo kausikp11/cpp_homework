@@ -1,5 +1,8 @@
 #include <pixelator/stb_image_data_view.hpp>
 
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb/stb_image.h"
+
 pixelator::StbImageDataView::StbImageDataView(
     std::filesystem::path image_path) {
   if (!std::filesystem::exists(image_path)) {
@@ -44,26 +47,28 @@ pixelator::StbImageDataView::StbImageDataView(StbImageDataView&& other_image) {
   other_image.channels_ = 0;
 }
 
-bool pixelator::StbImageDataView::empty() {
+bool pixelator::StbImageDataView::empty() const {
   if (this->size_of_image_.row == 0 && this->size_of_image_.col == 0) {
     return true;
   }
   return false;
 }
 
-pixelator::Size pixelator::StbImageDataView::size() {
+pixelator::Size pixelator::StbImageDataView::size() const {
   return this->size_of_image_;
 }
 
-int pixelator::StbImageDataView::rows() { return this->size_of_image_.row; }
-int pixelator::StbImageDataView::cols() { return this->size_of_image_.col; }
+int pixelator::StbImageDataView::rows() const {
+  return this->size_of_image_.row;
+}
+int pixelator::StbImageDataView::cols() const {
+  return this->size_of_image_.col;
+}
 
-ftxui::Color pixelator::StbImageDataView::at(int row, int col) {
-  ftxui::Screen screen{
-      ftxui::Screen(this->size_of_image_.row, this->size_of_image_.col)};
-  screen.Print();
-  auto& pixel = screen.PixelAt(row, col);
-  auto color = pixel.foreground_color;
+const ftxui::Color pixelator::StbImageDataView::at(int row, int col) const {
+  const auto index{channels_ * (row * cols_ + col)};
+  const ftxui::Color color{
+      this->image_[index], this->image_[index + 1], this->image_[index + 2]};
   return color;
 }
 

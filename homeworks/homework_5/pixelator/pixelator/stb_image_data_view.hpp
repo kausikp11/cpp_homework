@@ -1,13 +1,10 @@
 #ifndef PIXELATOR_STB_IMAGE_DATA_VIEW_HPP
 #define PIXELATOR_STB_IMAGE_DATA_VIEW_HPP
 
-#define STB_IMAGE_IMPLEMENTATION
 #include <filesystem>
 #include <iostream>
 
 #include "ftxui/screen/color.hpp"
-#include "ftxui/screen/screen.hpp"
-#include "stb/stb_image.h"
 
 namespace pixelator {
 struct Size {
@@ -21,11 +18,11 @@ class StbImageDataView {
   StbImageDataView(StbImageDataView&& other_image);
   StbImageDataView& operator=(StbImageDataView&& other);
 
-  pixelator::Size size();
-  int rows();
-  int cols();
-  bool empty();
-  ftxui::Color at(int row, int col);
+  pixelator::Size size() const;
+  int rows() const;
+  int cols() const;
+  bool empty() const;
+  const ftxui::Color at(int row, int col) const;
   ~StbImageDataView();
 
  private:
