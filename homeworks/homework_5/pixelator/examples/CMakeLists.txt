@@ -1,0 +1,2 @@
+add_executable(pixelate pixelate.cpp)
+target_link_libraries(pixelate PRIVATE cxx_setup image stb_image_data_view pixelate_image drawer)
