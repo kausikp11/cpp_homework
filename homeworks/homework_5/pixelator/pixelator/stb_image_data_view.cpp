@@ -18,11 +18,9 @@ pixelator::StbImageDataView::StbImageDataView(
   this->size_of_image_.rows = this->rows_;
 }
 
-pixelator::StbImageDataView::StbImageDataView(StbImageDataView&& other_image) {
-  this->rows_ = other_image.rows_;
-  this->cols_ = other_image.cols_;
-  this->channels_ = other_image.channels_;
-  this->image_ = other_image.image_;
+pixelator::StbImageDataView::StbImageDataView(StbImageDataView&& other_image):rows_{other_image.rows_}, cols_{other_image.cols_}, channels_{other_image.channels_},
+        image_{other_image.image_} {
+
   other_image.image_ = nullptr;
   other_image.rows_ = 0;
   other_image.cols_ = 0;
