@@ -52,7 +52,7 @@ pixelator::StbImageDataView& pixelator::StbImageDataView::operator=(
 }
 
 bool pixelator::StbImageDataView::empty() const {
-  if (size_of_image_.rows == 0 && size_of_image_.cols == 0) {
+  if (this->size_of_image_.rows == 0 && this->size_of_image_.cols == 0) {
     return true;
   }
   return false;
