@@ -3,7 +3,8 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb/stb_image.h"
 
-pixelator::StbImageDataView::StbImageDataView() : cols_{0}, rows_{0}, channels_{0}, image_data{nullptr} {};
+pixelator::StbImageDataView::StbImageDataView()
+    : cols_{0}, rows_{0}, channels_{0}, image_{nullptr} {}
 
 pixelator::StbImageDataView::StbImageDataView(
     std::filesystem::path image_path) {
@@ -20,13 +21,16 @@ pixelator::StbImageDataView::StbImageDataView(
   this->size_of_image_.rows = this->rows_;
 }
 
-pixelator::StbImageDataView::StbImageDataView(StbImageDataView&& other_image):rows_{other_image.rows_}, cols_{other_image.cols_}, channels_{other_image.channels_},
-        image_{other_image.image_} {
+pixelator::StbImageDataView::StbImageDataView(StbImageDataView&& other_image)
+    : rows_{other_image.rows_},
+      cols_{other_image.cols_},
+      channels_{other_image.channels_},
+      image_{other_image.image_} {
   other_image.image_ = nullptr;
   other_image.rows_ = 0;
   other_image.cols_ = 0;
   other_image.channels_ = 0;
-};
+}
 
 pixelator::StbImageDataView& pixelator::StbImageDataView::operator=(
     pixelator::StbImageDataView&& other) {
@@ -44,7 +48,7 @@ pixelator::StbImageDataView& pixelator::StbImageDataView::operator=(
   other.channels_ = 0;
 
   return *this;
-};
+}
 
 bool pixelator::StbImageDataView::empty() const {
   if (this->size_of_image_.rows == 0 && this->size_of_image_.cols == 0) {

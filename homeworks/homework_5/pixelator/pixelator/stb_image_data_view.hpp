@@ -13,7 +13,7 @@ struct Size {
 };
 class StbImageDataView {
  public:
-  StbImageDataView() = default;
+  StbImageDataView();
   StbImageDataView(std::filesystem::path image_path);
   StbImageDataView(StbImageDataView&& other_image);
   StbImageDataView& operator=(StbImageDataView&& other);

@@ -1,8 +1,7 @@
 #include <pixelator/image.hpp>
 
 pixelator::Image::Image(const int row, const int col)
-    : cols_{col}, rows_{row}, pixels_(row * col) {
-}
+    : cols_{col}, rows_{row}, pixels_(row * col) {}
 
 pixelator::Image::Image(const Image& ref_obj) {
   this->cols_ = ref_obj.cols_;
@@ -26,7 +25,9 @@ bool pixelator::Image::empty() const { return this->pixels_.empty(); }
 
 int pixelator::Image::rows() const { return this->rows_; }
 int pixelator::Image::cols() const { return this->cols_; }
-pixelator::Size pixelator::Image::size() const { return pixelator::Size{this->rows_,this->cols_}; }
+pixelator::Size pixelator::Image::size() const {
+  return pixelator::Size{this->rows_, this->cols_};
+}
 ftxui::Color& pixelator::Image::at(int row, int col) {
   return this->pixels_[cols_ * row + col];
 }
