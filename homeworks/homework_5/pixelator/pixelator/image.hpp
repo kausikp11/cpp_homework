@@ -17,7 +17,7 @@ class Image {
  public:
   Image(/* args */) = default;
 
-  explicit Image(const int row, const int col);
+  Image(const int row, const int col);
   Image(const Image& ref_obj);
   Image(pixelator::Size size);
   Image(Image&& other_image);
