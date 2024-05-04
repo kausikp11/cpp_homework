@@ -11,7 +11,6 @@ class Image {
  private:
   int cols_{0};
   int rows_{0};
-  pixelator::Size size_;
   std::vector<ftxui::Color> pixels_;
 
  public:
