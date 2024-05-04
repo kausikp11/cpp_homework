@@ -37,10 +37,10 @@ pixelator::StbImageDataView& pixelator::StbImageDataView::operator=(
   if (this == &other) { return *this; }
   if (image_) stbi_image_free(image_);
 
-  image_ = other.image_;
-  size_of_image_.rows = other.size_of_image_.rows;
-  size_of_image_.cols = other.size_of_image_.cols;
-  channels_ = other.channels_;
+  this->size_of_image_.rows = other.size_of_image_.rows;
+  this->size_of_image_.cols = other.size_of_image_.cols;
+  this->channels_ = other.channels_;
+  this->image_ = other.image_;
 
   other.image_ = nullptr;
   other.size_of_image_.rows = 0;
