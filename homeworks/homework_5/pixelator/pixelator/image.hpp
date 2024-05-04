@@ -15,7 +15,8 @@ class Image {
   std::vector<ftxui::Color> pixels_;
 
  public:
-  Image() = default;
+  Image(/* args */) = default;
+
   explicit Image(const int row, const int col);
   Image(const Image& ref_obj);
   Image(pixelator::Size size);
